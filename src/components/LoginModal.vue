@@ -27,11 +27,11 @@
 <script>
   export default {
     name: 'loginmodal',
-    data () {
-        return {
-            email : this.email,
-            password : this.password
-        }
+    data() {
+      return {
+        email: this.email,
+        password: this.password
+      }
     },
     methods: {
       toastLoginModal(msg) {
@@ -42,22 +42,24 @@
         this.$emit('close')
         this.email = ''
         this.password = ''
-        if (this.$root.$data.store.actions.authenticate() == true) {
-        this.$router.push('/userboards')
+        this.$root.$data.store.actions.authenticate()
+        if (this.$root.$data.store.state.user != null) {
+
+          this.$router.push('/userboards')
 
         } else {
-            alert("something went wrong, try again"            )
+          alert("something went wrong, try again")
         }
-       
-      },
-      routerPush() {
-
-        this.toastLoginModal("You are now logged in!")
-        console.log("reached logged in router")
-        
       }
+    },
+    routerPush() {
+
+      this.toastLoginModal("You are now logged in!")
+      console.log("reached logged in router")
+
     }
   }
+  
 
 </script>
 <style>

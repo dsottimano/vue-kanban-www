@@ -3,7 +3,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 let api = axios.create({
-  baseURL: 'http://localhost:3000/api/',
+  baseURL: 'https://vue-kanban-123.herokuapp.com/api/',
   timeout: 2000,
   withCredentials: true
 })
